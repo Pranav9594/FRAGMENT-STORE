@@ -1,13 +1,174 @@
 # Fragment Store
 
-A modern e-commerce web application built with React and FastAPI, featuring a responsive UI with Tailwind CSS and Shadcn components.
+A modern e-commerce web application built with React and FastAPI, featuring a responsive UI with Tailwind CSS and Shadcn UI components.
+
+## Tech Stack
+
+### Frontend
+- React.js
+- Tailwind CSS
+- Shadcn UI Components
+- React Router DOM
+- Framer Motion (for animations)
+- Axios (for API requests)
+
+### Backend
+- FastAPI (Python)
+- MongoDB with Motor (async MongoDB driver)
+- Python-dotenv (environment variables)
+- Uvicorn (ASGI server)
+
+## Components
+
+### UI Components
+1. **Navigation**
+   - `Navbar.jsx`: Main navigation bar with cart and search functionality
+   - `NavigationMenu.jsx`: Customizable navigation menu component
+
+2. **Product Display**
+   - `ProductCard.jsx`: Reusable card component for displaying products
+   - `BubbleBackground.jsx`: Animated background effect component
+
+3. **Shopping Features**
+   - `Cart.jsx`: Shopping cart page with item management
+   - `Shop.jsx`: Main shopping page with product listings
+   - `Checkout.jsx`: Checkout process page
+   - `Success.jsx`: Order confirmation page
+
+4. **Form Components**
+   - Input fields
+   - Select dropdowns
+   - Buttons
+   - Text areas
+   - Labels
+   - Form validation
+
+5. **UI Elements**
+   - Accordion
+   - Alert Dialog
+   - Avatar
+   - Badge
+   - Breadcrumb
+   - Calendar
+   - Carousel
+   - Context Menu
+   - Dialog
+   - Drawer
+   - Dropdown Menu
+   - Hover Card
+   - Input OTP
+   - Menu Bar
+   - Pagination
+   - Progress
+   - Radio Group
+   - Resizable
+   - Sheet
+   - Skeleton
+   - Slider
+   - Switch
+   - Tabs
+   - Toast notifications
+   - Tooltip
 
 ## Features
-
 - 🛍️ Modern e-commerce interface
 - 🎨 Sleek UI with Tailwind CSS and Shadcn components
 - 🔒 Secure authentication system
 - 💳 Shopping cart functionality
+- 📱 Responsive design that works on desktop and mobile
+- 🔍 Product catalog with search and filter functionality
+- 🛒 Shopping cart with real-time updates
+- 💯 Secure checkout process
+- 👤 User authentication
+- 📦 Order tracking
+- ✨ Animated UI elements
+- 🔔 Toast notifications for user feedback
+- 🌙 Dark mode support
+
+## Requirements
+
+### Frontend Requirements
+```bash
+Node.js >= 14.0.0
+npm >= 6.0.0
+```
+
+### Backend Requirements
+```bash
+Python >= 3.8
+MongoDB >= 4.4
+```
+
+### Python Packages
+```bash
+fastapi
+uvicorn
+motor
+pydantic
+python-dotenv
+```
+
+## Setup Instructions
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd project-directory
+   ```
+
+2. **Backend Setup**
+   ```bash
+   cd backend
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
+
+   Create a `.env` file in the backend directory:
+   ```env
+   MONGODB_URL=your_mongodb_connection_string
+   DATABASE_NAME=your_database_name
+   ```
+
+3. **Frontend Setup**
+   ```bash
+   cd frontend
+   npm install
+   ```
+
+## Running the Application
+
+1. **Start the Backend Server**
+   ```bash
+   cd backend
+   uvicorn server:app --reload
+   ```
+   The backend server will run on `http://localhost:8000`
+
+2. **Start the Frontend Development Server**
+   ```bash
+   cd frontend
+   npm start
+   ```
+   The frontend will run on `http://localhost:3000`
+
+## API Documentation
+
+- API documentation is available at `http://localhost:8000/docs` when the backend server is running
+- Includes all available endpoints and their specifications
+- Supports interactive testing of API endpoints
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details
 - 🌐 RESTful API backend with FastAPI
 - 📦 MongoDB database integration
 - 🎯 Responsive design for all devices
