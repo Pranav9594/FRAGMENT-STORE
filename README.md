@@ -1,4 +1,6 @@
 # Fragment Store
+<img width="1894" height="759" alt="image" src="https://github.com/user-attachments/assets/a94a9d1a-a3af-42ec-8bf3-19ede4177201" />
+
 
 A modern e-commerce web application built with React and FastAPI, featuring a responsive UI with Tailwind CSS and Shadcn UI components.
 
