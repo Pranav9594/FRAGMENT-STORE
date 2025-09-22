@@ -121,13 +121,7 @@ python-dotenv
    python -m venv .venv
    source .venv/bin/activate  # On Windows: .venv\Scripts\activate
    pip install -r requirements.txt
-   ```
-
-   Create a `.env` file in the backend directory:
-   ```env
-   MONGODB_URL=your_mongodb_connection_string
-   DATABASE_NAME=your_database_name
-   ```
+   ``
 
 3. **Frontend Setup**
    ```bash
@@ -165,11 +159,7 @@ python-dotenv
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details
 - 🌐 RESTful API backend with FastAPI
-- 📦 MongoDB database integration
 - 🎯 Responsive design for all devices
 
 ## Tech Stack
@@ -193,7 +183,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ### Prerequisites
 - Node.js (v18 or higher)
 - Python 3.12 or higher
-- MongoDB
 
 ### Installation
 
@@ -218,14 +207,6 @@ pip install -r requirements.txt
 ```bash
 cd frontend
 npm install --legacy-peer-deps
-```
-
-4. Create a `.env` file in the backend directory with the following content:
-```
-MONGO_URL=your_mongodb_connection_string
-DB_NAME=your_database_name
-JWT_SECRET=your_jwt_secret
-```
 
 ### Running the Application
 
