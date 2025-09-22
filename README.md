@@ -186,7 +186,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ### Backend
 - FastAPI
-- MongoDB with Motor
 - Python 3.12+
 - JWT Authentication
 - RESTful API
