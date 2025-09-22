@@ -97,8 +97,6 @@ npm >= 6.0.0
 ### Backend Requirements
 ```bash
 Python >= 3.8
-MongoDB >= 4.4
-```
 
 ### Python Packages
 ```bash
