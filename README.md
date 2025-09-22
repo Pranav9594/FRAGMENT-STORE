@@ -16,7 +16,6 @@ A modern e-commerce web application built with React and FastAPI, featuring a re
 
 ### Backend
 - FastAPI (Python)
-- MongoDB with Motor (async MongoDB driver)
 - Python-dotenv (environment variables)
 - Uvicorn (ASGI server)
 
