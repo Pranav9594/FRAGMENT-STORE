@@ -76,14 +76,11 @@ A modern e-commerce web application built with React and FastAPI, featuring a re
 - 🎨 Sleek UI with Tailwind CSS and Shadcn components
 - 🔒 Secure authentication system
 - 💳 Shopping cart functionality
-- 📱 Responsive design that works on desktop and mobile
 - 🔍 Product catalog with search and filter functionality
 - 🛒 Shopping cart with real-time updates
 - 💯 Secure checkout process
 - 👤 User authentication
-- 📦 Order tracking
 - ✨ Animated UI elements
-- 🔔 Toast notifications for user feedback
 - 🌙 Dark mode support
 
 ## Requirements
