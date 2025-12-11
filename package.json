@@ -9,13 +9,16 @@
     "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
     "start:backend": "cd backend && npm start",
     "start:frontend": "cd frontend && npm start",
+    "start:production": "npm run build && npm run start:backend",
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
     "dev:backend": "cd backend && npm run dev",
     "dev:frontend": "cd frontend && npm start",
-    "build": "cd frontend && npm run build",
+    "build": "npm run install:all && cd frontend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
     "test": "npm run test:backend && npm run test:frontend",
     "test:backend": "cd backend && npm test",
-    "test:frontend": "cd frontend && npm test"
+    "test:frontend": "cd frontend && npm test",
+    "vercel-build": "npm run build:frontend"
   },
   "keywords": [
     "ecommerce",

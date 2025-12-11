@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
+const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 require('dotenv').config();
 
@@ -125,6 +126,15 @@ app.get('/health', (req, res) => {
     statusChecksCount: useInMemory ? statusChecks.length : 'N/A'
   });
 });
+
+// Serve static files in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend/build')));
+  
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
+  });
+}
 
 // 404 handler
 app.use('*', (req, res) => {

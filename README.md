@@ -169,7 +169,46 @@ fragment-store/
 └── stop.bat             # Windows stop script
 ```
 
+## Deployment
+
+### Quick Deploy
+
+**Vercel (Recommended):**
+1. Fork this repository
+2. Connect to [Vercel](https://vercel.com)
+3. Set environment variables (see DEPLOYMENT.md)
+4. Deploy automatically
+
+**Railway:**
+1. Connect to [Railway](https://railway.app)
+2. Set environment variables
+3. Deploy automatically
+
+### Manual Deployment
+
+```bash
+# Build for production
+./deploy.sh        # Linux/Mac
+deploy.bat         # Windows
+
+# Or using npm
+npm run build
+```
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
+
+### Environment Variables
+
+**Backend:**
+- `MONGO_URL`: MongoDB connection string
+- `DB_NAME`: Database name
+- `CORS_ORIGINS`: Allowed origins
+- `PORT`: Server port (default: 8000)
+
+**Frontend:**
+- `REACT_APP_BACKEND_URL`: Backend API URL
+
 ## License
 
 This project is licensed under the MIT License.
-shiv
+yoo
