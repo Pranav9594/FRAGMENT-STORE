@@ -52,17 +52,7 @@ export const products = [
     reviews: 892,
     description: 'Crystal clear protective case with shock absorption'
   },
-  {
-    id: 5,
-    name: 'Power Bank 10000mAh',
-    price: 1899,
-    originalPrice: 2499,
-    image: 'https://images.unsplash.com/photo-1609167830220-7164aa360951?w=500&h=500&fit=crop',
-    category: 'electronics',
-    rating: 4.4,
-    reviews: 1567,
-    description: 'Portable charger with fast charging and LED display'
-  },
+
   {
     id: 6,
     name: 'Wireless Mouse',
@@ -195,17 +185,7 @@ export const products = [
     reviews: 1923,
     description: 'Advanced smartwatch with GPS and health monitoring'
   },
-  {
-    id: 18,
-    name: 'Gaming Mouse Pro',
-    price: 8999,
-    originalPrice: 12999,
-    image: 'https://images.unsplash.com/photo-1563297007-0686b2bd6fdb?w=500&h=500&fit=crop',
-    category: 'electronics',
-    rating: 4.8,
-    reviews: 654,
-    description: 'Professional gaming mouse with 16000 DPI and RGB lighting'
-  },
+
   {
     id: 19,
     name: 'Smartphone 128GB',
@@ -228,17 +208,7 @@ export const products = [
     reviews: 1234,
     description: 'Premium wireless headset with studio-quality sound'
   },
-  {
-    id: 21,
-    name: 'Action Camera 4K',
-    price: 18999,
-    originalPrice: 24999,
-    image: 'https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=500&h=500&fit=crop',
-    category: 'electronics',
-    rating: 4.7,
-    reviews: 876,
-    description: '4K action camera with waterproof case and stabilization'
-  },
+
   {
     id: 22,
     name: 'Portable SSD 1TB',
@@ -283,17 +253,7 @@ export const products = [
     reviews: 432,
     description: 'Professional drone with 4K camera and GPS return home'
   },
-  {
-    id: 26,
-    name: 'VR Headset Gaming',
-    price: 28999,
-    originalPrice: 39999,
-    image: 'https://images.unsplash.com/photo-1592478411213-6153e4ebc696?w=500&h=500&fit=crop',
-    category: 'electronics',
-    rating: 4.8,
-    reviews: 654,
-    description: 'Immersive VR headset with wireless connectivity'
-  },
+
   {
     id: 27,
     name: 'MacBook Air M3',
@@ -362,28 +322,8 @@ export const products = [
     reviews: 567,
     description: 'Pack of 3 comfortable sports socks'
   },
-  {
-    id: 33,
-    name: 'Baseball Cap',
-    price: 799,
-    originalPrice: 1299,
-    image: 'https://images.unsplash.com/photo-1575428652377-a36d235dc22d?w=500&h=500&fit=crop',
-    category: 'fashion',
-    rating: 4.3,
-    reviews: 432,
-    description: 'Adjustable baseball cap with embroidered logo'
-  },
-  {
-    id: 34,
-    name: 'Casual Shorts',
-    price: 1299,
-    originalPrice: 1999,
-    image: 'https://images.unsplash.com/photo-1506629905607-105e69ac5489?w=500&h=500&fit=crop',
-    category: 'fashion',
-    rating: 4.2,
-    reviews: 876,
-    description: 'Comfortable casual shorts for everyday wear'
-  },
+
+
   {
     id: 35,
     name: 'Tank Top',
@@ -494,17 +434,7 @@ export const products = [
     reviews: 432,
     description: 'Classic henley with long sleeves and button placket'
   },
-  {
-    id: 45,
-    name: 'Bomber Jacket',
-    price: 4999,
-    originalPrice: 7499,
-    image: 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=500&h=500&fit=crop',
-    category: 'fashion',
-    rating: 4.6,
-    reviews: 654,
-    description: 'Stylish bomber jacket with ribbed cuffs and hem'
-  },
+
   {
     id: 46,
     name: 'Cargo Pants Utility',
@@ -560,17 +490,7 @@ export const products = [
     reviews: 234,
     description: 'Two-piece designer suit with tailored fit'
   },
-  {
-    id: 51,
-    name: 'Premium Denim Jacket',
-    price: 7999,
-    originalPrice: 11999,
-    image: 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=500&h=500&fit=crop',
-    category: 'fashion',
-    rating: 4.6,
-    reviews: 567,
-    description: 'Premium denim jacket with vintage wash and distressing'
-  },
+
   {
     id: 52,
     name: 'Cashmere Scarf',
@@ -593,17 +513,7 @@ export const products = [
     reviews: 432,
     description: 'Professionally tailored trousers with perfect fit'
   },
-  {
-    id: 54,
-    name: 'Designer Coat Winter',
-    price: 18999,
-    originalPrice: 26999,
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=500&fit=crop',
-    category: 'fashion',
-    rating: 4.8,
-    reviews: 234,
-    description: 'Luxury winter coat with down filling and fur trim'
-  },
+
   {
     id: 55,
     name: 'Silk Tie Collection',
@@ -648,17 +558,7 @@ export const products = [
     reviews: 321,
     description: 'Designer blazer with modern slim fit and notch lapels'
   },
-  {
-    id: 59,
-    name: 'Luxury Overcoat',
-    price: 28999,
-    originalPrice: 39999,
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=500&fit=crop',
-    category: 'fashion',
-    rating: 4.9,
-    reviews: 178,
-    description: 'Premium wool overcoat with classic double-breasted design'
-  },
+
   {
     id: 60,
     name: 'Custom Suit Premium',
@@ -892,17 +792,7 @@ export const products = [
     reviews: 987,
     description: 'Advanced fitness tracker with heart rate and GPS'
   },
-  {
-    id: 81,
-    name: 'Designer Watch Steel',
-    price: 15999,
-    originalPrice: 22999,
-    image: 'https://images.unsplash.com/photo-1523170335258-f5c6c6bd6ebc?w=500&h=500&fit=crop',
-    category: 'accessories',
-    rating: 4.8,
-    reviews: 432,
-    description: 'Stainless steel watch with Swiss movement'
-  },
+
   {
     id: 82,
     name: 'Luxury Briefcase',
@@ -936,17 +826,7 @@ export const products = [
     reviews: 321,
     description: 'Weatherproof camera bag with customizable dividers'
   },
-  {
-    id: 85,
-    name: 'Diamond Watch Luxury',
-    price: 89999,
-    originalPrice: 124999,
-    image: 'https://images.unsplash.com/photo-1594576662017-c6ec04be6d36?w=500&h=500&fit=crop',
-    category: 'accessories',
-    rating: 4.9,
-    reviews: 89,
-    description: 'Luxury watch with diamond-encrusted bezel'
-  },
+
   {
     id: 86,
     name: 'Designer Handbag',
@@ -958,50 +838,9 @@ export const products = [
     reviews: 156,
     description: 'Designer leather handbag with gold hardware'
   },
-  {
-    id: 87,
-    name: 'Platinum Cufflinks',
-    price: 35999,
-    originalPrice: 49999,
-    image: 'https://images.unsplash.com/photo-1594576662017-c6ec04be6d36?w=500&h=500&fit=crop',
-    category: 'accessories',
-    rating: 4.8,
-    reviews: 67,
-    description: 'Handcrafted platinum cufflinks with precious stones'
-  },
-  {
-    id: 88,
-    name: 'Luxury Pen Set',
-    price: 18999,
-    originalPrice: 26999,
-    image: 'https://images.unsplash.com/photo-1594576662017-c6ec04be6d36?w=500&h=500&fit=crop',
-    category: 'accessories',
-    rating: 4.7,
-    reviews: 123,
-    description: 'Premium fountain pen set in gift box'
-  },
-  {
-    id: 89,
-    name: 'Swiss Watch Automatic',
-    price: 125999,
-    originalPrice: 169999,
-    image: 'https://images.unsplash.com/photo-1594576662017-c6ec04be6d36?w=500&h=500&fit=crop',
-    category: 'accessories',
-    rating: 5.0,
-    reviews: 45,
-    description: 'Swiss-made automatic watch with sapphire crystal'
-  },
-  {
-    id: 90,
-    name: 'Limited Edition Accessories',
-    price: 199999,
-    originalPrice: 279999,
-    image: 'https://images.unsplash.com/photo-1594576662017-c6ec04be6d36?w=500&h=500&fit=crop',
-    category: 'accessories',
-    rating: 5.0,
-    reviews: 23,
-    description: 'Exclusive limited edition luxury accessories collection'
-  }
+
+
+
 ];
 
 // Helper functions for cart management
