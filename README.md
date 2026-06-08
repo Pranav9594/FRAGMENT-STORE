@@ -1,4 +1,5 @@
 # Fragment Store
+<img width="1919" height="820" alt="image" src="https://github.com/user-attachments/assets/8bc1fc67-a82e-40ac-a12f-fd226c05b6a5" />
 
 A modern e-commerce web application built with React and Node.js/Express, featuring a responsive UI with Tailwind CSS and Shadcn components.
 
