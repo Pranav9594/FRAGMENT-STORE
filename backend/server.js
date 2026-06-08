@@ -15,6 +15,18 @@ let statusChecks = [];
 
 // Middleware
 app.use(helmet());
+// Allow images from trusted external sources (images used by the frontend)
+// without permitting unsafe inline scripts broadly.
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"],
+    scriptSrc: ["'self'"],
+    imgSrc: ["'self'", 'data:', 'https://images.unsplash.com', 'https://avatars.githubusercontent.com', 'https://customer-assets.emergentagent.com'],
+    styleSrc: ["'self'", "'unsafe-inline'"],
+    connectSrc: ["'self'"],
+    fontSrc: ["'self'", 'https://fonts.gstatic.com']
+  }
+}));
 app.use(morgan('combined'));
 app.use(cors({
   origin: process.env.CORS_ORIGINS ? process.env.CORS_ORIGINS.split(',') : '*',
