@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Minus, Plus, Trash2, ShoppingBag, ArrowLeft } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
-import BubbleBackground from '../components/BubbleBackground';
 import { 
   getCartFromStorage, 
   updateCartQuantity, 
@@ -58,23 +57,19 @@ const Cart = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-blue-900 pt-24 flex items-center justify-center relative overflow-hidden">
-        <BubbleBackground />
+      <div className="flex min-h-screen items-center justify-center bg-[#f7f7f4] pt-24">
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-          className="w-16 h-16 border-4 border-cyan-500 border-t-transparent rounded-full relative z-10"
+          className="relative z-10 h-12 w-12 rounded-full border-4 border-[#e7ad4b] border-t-transparent"
         />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-blue-900 pt-24 relative overflow-hidden">
-      {/* Live Bubble Background */}
-      <BubbleBackground />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
+    <div className="min-h-screen bg-[#f7f7f4] pt-24">
+      <div className="mx-auto max-w-7xl px-6 py-12 sm:px-8 lg:px-12">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -83,15 +78,15 @@ const Cart = () => {
           className="flex items-center mb-12"
         >
           <Link to="/shop">
-            <Button variant="ghost" className="text-cyan-400 hover:text-cyan-300 hover:bg-cyan-400/10 p-3 mr-6 rounded-xl">
+            <Button variant="ghost" className="mr-6 rounded-xl p-3 text-[#2364aa] hover:bg-[#eef1f5] hover:text-[#14213d]">
               <ArrowLeft size={24} />
             </Button>
           </Link>
           <div>
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">
+            <h1 className="text-4xl font-bold text-[#14213d] md:text-5xl">
               Shopping Cart
             </h1>
-            <p className="text-gray-400 text-xl mt-2">
+            <p className="mt-2 text-xl text-[#687080]">
               {itemCount} {itemCount === 1 ? 'item' : 'items'} in your cart
             </p>
           </div>
@@ -103,7 +98,7 @@ const Cart = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="text-center py-24"
+            className="rounded-2xl border border-[#e7e8e5] bg-white py-24 text-center shadow-sm"
           >
             <motion.div
               animate={{ 
@@ -119,16 +114,16 @@ const Cart = () => {
             >
               🛒
             </motion.div>
-            <h3 className="text-3xl font-semibold text-white mb-4">
+            <h3 className="mb-4 text-3xl font-semibold text-[#14213d]">
               Your cart is empty
             </h3>
-            <p className="text-gray-400 text-xl mb-12 max-w-md mx-auto">
+            <p className="mx-auto mb-12 max-w-md text-xl text-[#687080]">
               Looks like you haven't added anything to your cart yet
             </p>
             <Link to="/shop">
               <Button 
                 size="lg"
-                className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white border-0 px-10 py-6 text-xl rounded-xl"
+                className="rounded-xl border-0 bg-[#14213d] px-10 py-6 text-xl text-white hover:bg-[#2364aa]"
               >
                 <ShoppingBag size={24} className="mr-3" />
                 Start Shopping
@@ -154,11 +149,11 @@ const Cart = () => {
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20, scale: 0.8 }}
                       transition={{ delay: index * 0.1, duration: 0.6 }}
-                      className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-8 hover:border-cyan-500/30 transition-all duration-300"
+                      className="rounded-2xl border border-[#e7e8e5] bg-white p-8 shadow-sm transition-all duration-300 hover:border-[#e7ad4b]"
                     >
                       <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-6 sm:space-y-0 sm:space-x-8">
                         {/* Product Image */}
-                        <div className="w-full sm:w-32 h-48 sm:h-32 rounded-2xl overflow-hidden bg-gray-700">
+                        <div className="h-48 w-full overflow-hidden rounded-xl bg-[#eef1f5] sm:h-32 sm:w-32">
                           <img
                             src={item.image}
                             alt={item.name}
@@ -168,21 +163,21 @@ const Cart = () => {
 
                         {/* Product Details */}
                         <div className="flex-1 w-full">
-                          <h3 className="font-semibold text-white text-xl mb-2">
+                          <h3 className="mb-2 text-xl font-semibold text-[#14213d]">
                             {item.name}
                           </h3>
-                          <p className="text-gray-400 text-base mb-4">
+                          <p className="mb-4 text-base text-[#687080]">
                             {item.description}
                           </p>
                           
                           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
                             {/* Price */}
                             <div className="flex items-center space-x-3">
-                              <span className="text-2xl font-bold text-cyan-400">
+                              <span className="text-2xl font-bold text-[#2364aa]">
                                 ₹{item.price.toLocaleString()}
                               </span>
                               {item.originalPrice > item.price && (
-                                <span className="text-gray-500 line-through text-lg">
+                                <span className="text-lg text-[#9aa0a8] line-through">
                                   ₹{item.originalPrice.toLocaleString()}
                                 </span>
                               )}
@@ -190,17 +185,17 @@ const Cart = () => {
 
                             {/* Quantity Controls */}
                             <div className="flex items-center space-x-4">
-                              <div className="flex items-center space-x-3 bg-gray-700/50 rounded-2xl p-2">
+                              <div className="flex items-center space-x-3 rounded-xl border border-[#d8dbd8] bg-[#f7f7f4] p-2">
                                 <motion.button
                                   whileHover={{ scale: 1.1 }}
                                   whileTap={{ scale: 0.9 }}
                                   onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
-                                  className="p-2 text-gray-400 hover:text-white hover:bg-gray-600 rounded-xl transition-colors"
+                                  className="rounded-xl p-2 text-[#687080] transition-colors hover:bg-white hover:text-[#14213d]"
                                 >
                                   <Minus size={18} />
                                 </motion.button>
                                 
-                                <Badge variant="outline" className="bg-gray-800 border-gray-600 text-white min-w-[3rem] text-center py-2 px-4 text-lg">
+                                <Badge variant="outline" className="min-w-[3rem] border-[#d8dbd8] bg-white px-4 py-2 text-center text-lg text-[#14213d]">
                                   {item.quantity}
                                 </Badge>
                                 
@@ -208,7 +203,7 @@ const Cart = () => {
                                   whileHover={{ scale: 1.1 }}
                                   whileTap={{ scale: 0.9 }}
                                   onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
-                                  className="p-2 text-gray-400 hover:text-white hover:bg-gray-600 rounded-xl transition-colors"
+                                  className="rounded-xl p-2 text-[#687080] transition-colors hover:bg-white hover:text-[#14213d]"
                                 >
                                   <Plus size={18} />
                                 </motion.button>
@@ -219,7 +214,7 @@ const Cart = () => {
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
                                 onClick={() => handleRemoveItem(item.id)}
-                                className="p-3 text-gray-400 hover:text-red-400 hover:bg-red-400/10 rounded-xl transition-colors"
+                                className="rounded-xl p-3 text-[#687080] transition-colors hover:bg-red-50 hover:text-red-600"
                               >
                                 <Trash2 size={20} />
                               </motion.button>
@@ -239,33 +234,33 @@ const Cart = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
-                className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-8 sticky top-32"
+                className="sticky top-32 rounded-2xl border border-[#e7e8e5] bg-white p-8 shadow-sm"
               >
-                <h3 className="text-2xl font-semibold text-white mb-8">
+                <h3 className="mb-8 text-2xl font-semibold text-[#14213d]">
                   Order Summary
                 </h3>
 
                 <div className="space-y-6 mb-8">
-                  <div className="flex justify-between text-gray-400 text-lg">
+                  <div className="flex justify-between text-lg text-[#687080]">
                     <span>Subtotal ({itemCount} items)</span>
                     <span>₹{total.toLocaleString()}</span>
                   </div>
                   
-                  <div className="flex justify-between text-gray-400 text-lg">
+                  <div className="flex justify-between text-lg text-[#687080]">
                     <span>Shipping</span>
-                    <span className="text-green-400 font-semibold">
+                    <span className="font-semibold text-[#2364aa]">
                       {total >= 999 ? 'Free' : '₹99'}
                     </span>
                   </div>
                   
                   {total < 999 && (
-                    <div className="text-sm text-cyan-400 bg-cyan-400/10 p-4 rounded-2xl border border-cyan-400/20">
+                    <div className="rounded-xl border border-[#e7ad4b]/40 bg-[#e7ad4b]/10 p-4 text-sm text-[#14213d]">
                       Add ₹{(999 - total).toLocaleString()} more for free shipping! 🚚
                     </div>
                   )}
                   
-                  <div className="border-t border-gray-700 pt-6">
-                    <div className="flex justify-between text-white text-2xl font-bold">
+                  <div className="border-t border-[#e7e8e5] pt-6">
+                    <div className="flex justify-between text-2xl font-bold text-[#14213d]">
                       <span>Total</span>
                       <span>₹{(total + (total >= 999 ? 0 : 99)).toLocaleString()}</span>
                     </div>
@@ -275,7 +270,7 @@ const Cart = () => {
                 <Link to="/checkout" className="block mb-4">
                   <Button 
                     size="lg"
-                    className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white border-0 py-6 text-xl rounded-2xl"
+                    className="w-full rounded-xl border-0 bg-[#14213d] py-6 text-xl text-white hover:bg-[#2364aa]"
                   >
                     <motion.div
                       whileHover={{ scale: 1.02 }}
@@ -288,7 +283,7 @@ const Cart = () => {
                 </Link>
 
                 <div className="text-center">
-                  <Link to="/shop" className="text-cyan-400 hover:text-cyan-300 text-lg font-medium transition-colors">
+                  <Link to="/shop" className="text-lg font-medium text-[#2364aa] transition-colors hover:text-[#14213d]">
                     Continue Shopping
                   </Link>
                 </div>

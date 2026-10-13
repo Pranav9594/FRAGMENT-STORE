@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Toaster } from "./components/ui/sonner";
 import { toast } from "sonner";
-import BubbleBackground from "./components/BubbleBackground";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
@@ -32,7 +32,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-blue-900 relative">
+        <div className="app-shell">
           <Navbar />
           <AnimatePresence mode="wait">
             <Routes>
@@ -43,14 +43,15 @@ function App() {
               <Route path="/success" element={<Success />} />
             </Routes>
           </AnimatePresence>
+          <Footer />
           <Toaster 
             position="bottom-right"
             toastOptions={{
               style: {
-                background: 'rgb(17, 24, 39)',
-                color: 'white',
-                border: '1px solid rgb(6, 182, 212)',
-                borderRadius: '12px',
+                background: '#14213d',
+                color: '#fff',
+                border: '1px solid #f5b544',
+                borderRadius: '4px',
               },
             }}
           />
