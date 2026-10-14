@@ -1,0 +1,9 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Fragment Store logo</title>
+  <desc id="desc">A geometric F mark made from layered fragments</desc>
+  <rect width="128" height="128" rx="28" fill="#14213D"/>
+  <path d="M35 27H94V43H53V56H86V71H53V101H35V27Z" fill="#E7AD4B"/>
+  <path d="M76 27H94L77 43H59L76 27Z" fill="#2364AA"/>
+  <path d="M67 56H86L70 71H51L67 56Z" fill="#2364AA"/>
+  <path d="M53 71H71L53 89V71Z" fill="#E7AD4B"/>
+</svg>

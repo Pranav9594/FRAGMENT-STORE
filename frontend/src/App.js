@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Toaster } from "./components/ui/sonner";
 import { toast } from "sonner";
@@ -11,6 +11,28 @@ import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Success from "./pages/Success";
+
+function ScrollToTop() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const targetId = decodeURIComponent(location.hash.slice(1));
+      const frame = window.requestAnimationFrame(() => {
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+
+      return () => window.cancelAnimationFrame(frame);
+    }
+
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [location.pathname, location.hash]);
+
+  return null;
+}
 
 function App() {
   useEffect(() => {
@@ -33,6 +55,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <div className="app-shell">
+          <ScrollToTop />
           <Navbar />
           <AnimatePresence mode="wait">
             <Routes>

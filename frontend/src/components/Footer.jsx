@@ -7,7 +7,7 @@ const Footer = () => (
     <div className="footer-inner">
       <div className="footer-brand">
         <Link to="/" className="footer-logo">
-          <img src="/images/logo.png" alt="Fragment Store logo" />
+          <img src="/images/fragment-store-logo.svg" alt="Fragment Store logo" />
           <span>FRAGMENT STORE</span>
         </Link>
         <p>Thoughtfully selected essentials for work, life, and everywhere in between.</p>
@@ -30,7 +30,7 @@ const Footer = () => (
       <div className="footer-column footer-contact">
         <h3>Stay connected</h3>
         <span><Mail size={15} /> Newsletter signup on the homepage</span>
-        <span>Support details will appear here when configured.</span>
+        <a href="mailto:support@fragmentstore.com">Email support@fragmentstore.com</a>
       </div>
     </div>
     <div className="footer-bottom">

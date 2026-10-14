@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingCart, Search, Menu, X, UserRound, Minus, Plus, Trash2, ArrowRight } from 'lucide-react';
+import { ShoppingCart, Search, X, UserRound, Minus, Plus, Trash2, ArrowRight } from 'lucide-react';
 import { getCartItemCount, getCartFromStorage, removeFromCart, updateCartQuantity, getCartTotal } from '../data/mock';
 
 const Navbar = () => {
   const location = useLocation();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
   const [cartItems, setCartItems] = useState([]);
@@ -42,14 +42,15 @@ const Navbar = () => {
   const navItems = [
     { name: 'Home', path: '/', key: 'home' },
     { name: 'Shop', path: '/shop', key: 'shop' },
-    { name: 'Collections', path: '/shop', key: 'collections' },
-    { name: 'About us', path: '/', hash: '#about', key: 'about' },
     { name: 'Contact', path: '/', hash: '#contact', key: 'contact' },
   ];
 
   const isNavItemActive = (item) => {
     if (item.hash) {
       return location.pathname === '/' && location.hash === item.hash;
+    }
+    if (item.key === 'home') {
+      return location.pathname === '/' && !location.hash;
     }
     return location.pathname === item.path;
   };
@@ -71,7 +72,7 @@ const Navbar = () => {
                 className="brand-mark"
               >
                 <img 
-                  src="/images/logo.png"
+                  src="/images/fragment-store-logo.svg"
                   alt="FRAGMENT STORE"
                   className="brand-logo"
                 />
@@ -86,17 +87,16 @@ const Navbar = () => {
                 <Link
                   key={item.key}
                   to={item.hash ? { pathname: item.path, hash: item.hash } : item.path}
-                  className="relative group"
+                  className="nav-item"
                 >
                   <motion.span className={`nav-link ${isNavItemActive(item) ? 'active' : ''}`} whileHover={{ y: -1 }}>
                     {item.name}
                   </motion.span>
                   <motion.div
                     className="nav-underline"
-                    initial={{ width: 0 }}
+                    initial={false}
                     animate={{ width: isNavItemActive(item) ? '100%' : 0 }}
-                    whileHover={{ width: '100%' }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.2 }}
                   />
                 </Link>
               ))}
@@ -106,7 +106,7 @@ const Navbar = () => {
               <motion.button
                 type="button"
                 aria-label="Search products"
-                onClick={() => window.location.assign('/shop')}
+                onClick={() => navigate('/shop?focus=search')}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 className="nav-icon"
@@ -135,43 +135,8 @@ const Navbar = () => {
               </motion.button>
 
               <button type="button" aria-label="Open account" className="nav-icon account-icon"><UserRound size={19} /></button>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="nav-icon mobile-toggle"
-              >
-                {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-              </motion.button>
             </div>
           </div>
-
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ 
-              height: isMenuOpen ? 'auto' : 0,
-              opacity: isMenuOpen ? 1 : 0
-            }}
-            transition={{ duration: 0.3 }}
-            className="mobile-nav"
-          >
-            <div className="mobile-nav-list">
-              {navItems.map((item) => (
-                <Link
-                  key={item.key}
-                  to={item.hash ? { pathname: item.path, hash: item.hash } : item.path}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`mobile-nav-link ${
-                    isNavItemActive(item)
-                      ? 'bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-400 border border-blue-500/30'
-                      : 'text-gray-300 hover:text-white hover:bg-gray-800/50'
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </motion.nav>
 
@@ -276,7 +241,7 @@ const Navbar = () => {
                   </div>
                   <div className="mb-5 flex items-center justify-between text-sm text-[#687080]">
                     <span>Shipping</span>
-                    <span className="font-medium text-emerald-400">{subtotal >= 999 ? 'Free' : '₹99'}</span>
+                    <span className="font-medium text-[#e7ad4b]">{subtotal >= 999 ? 'Free' : '₹99'}</span>
                   </div>
                   <Link
                     to="/cart"

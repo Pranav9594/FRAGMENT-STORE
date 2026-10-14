@@ -41,9 +41,9 @@ const Home = () => {
         </div>
       </section>
       <section className="container benefits" aria-label="Shopping benefits">
-        <div className="benefit"><span className="benefit-icon"><Truck size={19} /></span><span><strong>Free shipping</strong><span>On orders above ₹999</span></span></div>
-        <div className="benefit"><span className="benefit-icon"><RotateCcw size={19} /></span><span><strong>Returns support</strong><span>Simple help when you need it</span></span></div>
-        <div className="benefit"><span className="benefit-icon"><LockKeyhole size={19} /></span><span><strong>Secure checkout</strong><span>Your cart stays protected</span></span></div>
+        <div className="benefit"><span className="benefit-icon" aria-hidden="true"><Truck size={19} /></span><div className="benefit-copy"><strong>Free shipping</strong><span>On orders above ₹999</span></div></div>
+        <div className="benefit"><span className="benefit-icon" aria-hidden="true"><RotateCcw size={19} /></span><div className="benefit-copy"><strong>Returns support</strong><span>Simple help when you need it</span></div></div>
+        <div className="benefit"><span className="benefit-icon" aria-hidden="true"><LockKeyhole size={19} /></span><div className="benefit-copy"><strong>Secure checkout</strong><span>Your cart stays protected</span></div></div>
       </section>
       <section className="section container" id="categories">
         <div className="section-heading"><div><span className="eyebrow">Find your next favorite</span><h2>Browse by category</h2></div><Link className="section-link" to="/shop">View all <ArrowRight size={14} /></Link></div>
