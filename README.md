@@ -179,11 +179,6 @@ fragment-store/
 3. Set environment variables (see DEPLOYMENT.md)
 4. Deploy automatically
 
-**Railway:**
-1. Connect to [Railway](https://railway.app)
-2. Set environment variables
-3. Deploy automatically
-
 ### Manual Deployment
 
 ```bash
@@ -211,4 +206,3 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
 ## License
 
 This project is licensed under the MIT License.
-

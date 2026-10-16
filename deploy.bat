@@ -28,7 +28,6 @@ echo 📋 Next steps:
 echo 1. Set up your environment variables
 echo 2. Deploy to your chosen platform:
 echo    - Vercel: vercel --prod
-echo    - Railway: railway up
 echo    - Docker: docker build -t fragment-store .
 echo.
 echo 📖 See DEPLOYMENT.md for detailed instructions

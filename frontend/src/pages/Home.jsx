@@ -33,7 +33,7 @@ const Home = () => {
         <div className="container hero-grid">
           <div className="hero-copy">
             <span className="eyebrow">Curated for everyday living</span>
-            <h1>Everything.<br />For everyone.<em>Small finds. Big delight.</em></h1>
+            <h1>Everything.<br />For everyone.<em aria-label="Small finds. Big delight."><span className="hero-word" style={{ '--word-delay': '0ms' }}>Small finds.</span>{' '}<span className="hero-word" style={{ '--word-delay': '140ms' }}>Big delight.</span></em></h1>
             <p className="hero-description">Discover useful, beautiful products for your everyday. Thoughtfully chosen, fairly priced, and ready to make life a little better.</p>
             <div className="hero-actions"><Link to="/shop" className="primary-button">Shop now <ArrowRight size={15} /></Link><a href="#categories" className="secondary-button">Explore collections</a></div>
           </div>
@@ -49,6 +49,12 @@ const Home = () => {
         <div className="section-heading"><div><span className="eyebrow">Find your next favorite</span><h2>Browse by category</h2></div><Link className="section-link" to="/shop">View all <ArrowRight size={14} /></Link></div>
         <div className="category-grid">{categoryTiles.map((category) => <Link to={`/shop?category=${category.id}`} className="category-tile" key={category.id}><img src={category.image} alt="" /><span className="category-label">{category.name}<small>Shop the edit <ArrowRight size={12} /></small></span></Link>)}</div>
       </section>
+      <div className="word-marquee" aria-label="Thoughtfully chosen products, honest prices, everyday delight">
+        <div className="word-marquee-track" aria-hidden="true">
+          <div className="word-marquee-group"><span>Thoughtfully chosen</span><b>✦</b><span>Honest prices</span><b>✦</b><span>Everyday delight</span><b>✦</b></div>
+          <div className="word-marquee-group"><span>Thoughtfully chosen</span><b>✦</b><span>Honest prices</span><b>✦</b><span>Everyday delight</span><b>✦</b></div>
+        </div>
+      </div>
       <section className="section container" id="trending">
         <div className="section-heading"><div><span className="eyebrow">Popular right now</span><h2>Trending products</h2></div><Link className="section-link" to="/shop">View all products <ArrowRight size={14} /></Link></div>
         <div className="products-grid">{featuredProducts.map((product) => <ProductCard key={product.id} product={product} />)}</div>

@@ -7,7 +7,7 @@ const Footer = () => (
     <div className="footer-inner">
       <div className="footer-brand">
         <Link to="/" className="footer-logo">
-          <img src="/images/fragment-store-logo.svg" alt="Fragment Store logo" />
+          <span className="footer-logo-icon"><img src="/images/fragment-store-logo.svg" alt="Fragment Store logo" /></span>
           <span>FRAGMENT STORE</span>
         </Link>
         <p>Thoughtfully selected essentials for work, life, and everywhere in between.</p>
