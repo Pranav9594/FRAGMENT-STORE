@@ -1,195 +1,100 @@
 # Deployment Guide
 
-## ✅ Vercel Deployment
+## Vercel Deployment
 
 ### Prerequisites
+
 - Vercel account (https://vercel.com)
 - Git repository
 
-### Steps
+### Deploy
 
-1. **Install Vercel CLI** (optional)
-   ```bash
-   npm install -g vercel
-   ```
+Install the Vercel CLI if needed:
 
-2. **Deploy via CLI**
-   ```bash
-   vercel
-   ```
-
-3. **Or Deploy via GitHub**
-   - Push code to GitHub
-   - Import project in Vercel dashboard
-   - Vercel will auto-detect configuration from `vercel.json`
-
-### Environment Variables (Vercel Dashboard)
+```bash
+npm install -g vercel
 ```
+
+Deploy from the repository root:
+
+```bash
+vercel
+```
+
+Alternatively, import the GitHub repository in the Vercel dashboard. The repository contains a `vercel.json` configuration.
+
+### Vercel Environment Variables
+
+Configure these in the Vercel dashboard:
+
+```text
 NODE_ENV=production
 PORT=8000
 CORS_ORIGINS=https://your-domain.vercel.app
 ```
 
+Do not add `cache-dir` or `NPM_CONFIG_CACHE_DIR`. If an npm cache override is required, use `NPM_CONFIG_CACHE`.
+
 ### Build Settings
+
+- **Framework Preset**: Other
+- **Root Directory**: repository root
 - **Build Command**: `npm run build:frontend`
 - **Output Directory**: `frontend/build`
 - **Install Command**: `npm install`
+- **Node.js Version**: 18.x or newer
 
----
+### Configuration
 
-## ✅ Netlify Deployment
+- `vercel.json` routes the backend API and frontend.
+- `backend/server.js` runs as the Vercel serverless backend.
+- The React frontend is built from `frontend/` and served from `frontend/build`.
+- `/api/*` routes to the backend.
+- `/health` routes to the backend health endpoint.
 
-### Prerequisites
-- Netlify account (https://netlify.com)
-- Git repository
+## Security Notes
 
-### Steps
+1. CSRF protection is enabled on the backend.
+2. Configure `CORS_ORIGINS` with the actual Vercel domain.
+3. Store environment variables in the Vercel dashboard, not in source code.
+4. HTTPS is provided by Vercel.
 
-1. **Install Netlify CLI** (optional)
-   ```bash
-   npm install -g netlify-cli
-   ```
+## API Endpoints
 
-2. **Install Netlify Functions Dependencies**
-   ```bash
-   cd netlify/functions
-   npm install
-   cd ../..
-   ```
-
-3. **Deploy via CLI**
-   ```bash
-   netlify deploy --prod
-   ```
-
-4. **Or Deploy via GitHub**
-   - Push code to GitHub
-   - Import project in Netlify dashboard
-   - Netlify will auto-detect configuration from `netlify.toml`
-
-### Environment Variables (Netlify Dashboard)
-```
-NODE_ENV=production
-NODE_VERSION=18
-```
-
-### Build Settings
-- **Base Directory**: `frontend`
-- **Build Command**: `npm run build`
-- **Publish Directory**: `frontend/build`
-- **Functions Directory**: `netlify/functions`
-
----
-
-## 🔧 Configuration Files
-
-### Vercel
-- `vercel.json` - Routes backend API and frontend
-- Backend runs as serverless function
-- Frontend served as static files
-
-### Netlify
-- `netlify.toml` - Build and redirect configuration
-- `netlify/functions/api.js` - Serverless backend wrapper
-- Frontend served as static files
-
----
-
-## 🔒 Security Notes
-
-1. **CSRF Protection**: Enabled on both platforms
-2. **CORS**: Configure `CORS_ORIGINS` with your actual domain
-3. **Environment Variables**: Set in platform dashboard, not in code
-4. **HTTPS**: Automatically enabled on both platforms
-
----
-
-## 🚀 API Endpoints
-
-### Vercel
 - Frontend: `https://your-app.vercel.app`
 - API: `https://your-app.vercel.app/api/*`
 - Health: `https://your-app.vercel.app/health`
 
-### Netlify
-- Frontend: `https://your-app.netlify.app`
-- API: `https://your-app.netlify.app/.netlify/functions/api/*`
-- Health: `https://your-app.netlify.app/.netlify/functions/api/health`
+## Frontend API Configuration
 
----
+For production, use `/api`; for local development, use the local backend:
 
-## 📝 Frontend API Configuration
-
-Update frontend API calls based on platform:
-
-### For Netlify
 ```javascript
-const API_BASE = process.env.NODE_ENV === 'production' 
-  ? '/.netlify/functions/api' 
+const API_BASE = process.env.NODE_ENV === 'production'
+  ? '/api'
   : 'http://localhost:8000/api';
 ```
 
-### For Vercel
-```javascript
-const API_BASE = process.env.NODE_ENV === 'production' 
-  ? '/api' 
-  : 'http://localhost:8000/api';
-```
-
----
-
-## 🧪 Testing Deployment
+## Testing Deployment
 
 ```bash
-# Test health endpoint
 curl https://your-app.vercel.app/health
-curl https://your-app.netlify.app/.netlify/functions/api/health
-
-# Test CSRF token
 curl https://your-app.vercel.app/api/csrf-token
-curl https://your-app.netlify.app/.netlify/functions/api/csrf-token
 ```
 
----
+## Troubleshooting
 
-## 🐛 Troubleshooting
+- Check build logs in the Vercel dashboard.
+- Ensure `vercel.json` is in the repository root.
+- Verify Vercel environment variables.
+- Redeploy without cache after changing npm or build settings.
 
-### Vercel
-- Check build logs in Vercel dashboard
-- Ensure `vercel.json` is in root directory
-- Verify environment variables are set
+## Deployment Checklist
 
-### Netlify
-- Check build logs in Netlify dashboard
-- Ensure `netlify.toml` is in root directory
-- Run `cd netlify/functions && npm install` before deploying
-- Verify Node version is 18+
-
----
-
-## 📊 Comparison
-
-| Feature | Vercel | Netlify |
-|---------|--------|---------|
-| Setup | Easier | Requires function setup |
-| API Path | `/api/*` | `/.netlify/functions/api/*` |
-| Build Time | Faster | Moderate |
-| Free Tier | 100GB bandwidth | 100GB bandwidth |
-| Serverless | Native | Via functions |
-
----
-
-## ✅ Deployment Checklist
-
-- [ ] Push code to GitHub
-- [ ] Install dependencies in `netlify/functions` (Netlify only)
-- [ ] Set environment variables in platform dashboard
-- [ ] Update CORS_ORIGINS with actual domain
-- [ ] Test health endpoint after deployment
-- [ ] Test CSRF token generation
-- [ ] Verify frontend loads correctly
-- [ ] Test API endpoints
-
----
-
-**Both platforms are production-ready with full security features enabled!** 🚀
+- [ ] Push code to GitHub.
+- [ ] Set environment variables in Vercel.
+- [ ] Remove invalid `cache-dir` variables from Vercel.
+- [ ] Test the health endpoint.
+- [ ] Test CSRF token generation.
+- [ ] Verify the frontend loads correctly.
+- [ ] Test API endpoints.

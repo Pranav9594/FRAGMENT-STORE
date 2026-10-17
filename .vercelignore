@@ -3,5 +3,3 @@ node_modules
 .env.local
 *.log
 .DS_Store
-netlify
-netlify.toml
